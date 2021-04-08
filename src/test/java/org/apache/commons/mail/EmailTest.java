@@ -138,4 +138,16 @@ public class EmailTest {
 	public void testGetHostNameNull() throws EmailException {
 		assertEquals(null, email.getHostName());
 	}
+	
+		
+	@Test
+	/**
+	 * Tests the getSentDate function by supplying a new time based on the current time and confirms by comparing the getSendDate value
+	 * @throws EmailException
+	 */
+	public void testSentDate() throws EmailException {
+		Date currentTime = new Date();
+		email.setSentDate(currentTime);
+		assertEquals(currentTime, email.getSentDate());
+	}
 }
