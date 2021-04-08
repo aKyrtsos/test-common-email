@@ -150,4 +150,10 @@ public class EmailTest {
 		email.setSentDate(currentTime);
 		assertEquals(currentTime, email.getSentDate());
 	}
+	
+		
+	@Test
+	public void testSentDateEmpty() throws EmailException {
+		assertEquals(new Date(), email.getSentDate());
+	}
 }
