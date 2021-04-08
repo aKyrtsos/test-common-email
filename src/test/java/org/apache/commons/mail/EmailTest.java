@@ -163,4 +163,12 @@ public class EmailTest {
 	public void testGetSocketConnectionTimeout() throws EmailException {		
 		assertEquals(60000, email.getSocketConnectionTimeout());
 	}
+	
+		
+	@Test
+	public void testSetFrom() throws EmailException {		
+		email.setFrom(TEST_EMAILS[2]);
+		
+		assertEquals(TEST_EMAILS[2], email.getFromAddress().toString());
+	}
 }
