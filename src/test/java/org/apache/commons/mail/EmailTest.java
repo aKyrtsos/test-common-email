@@ -78,4 +78,23 @@ public class EmailTest {
 		
 		assertEquals(2, email.headers.size());
 	}
+	
+	@Test
+	/**
+	 * Test to ensure addheader can correctly catch null names
+	 */
+	public void testAddHeaderNullName() {
+		boolean exceptionCaught = false;
+		
+		try {
+			email.addHeader("", "value");
+		} catch(Exception e){
+			exceptionCaught = true;
+			assertFalse("Exception occured as expected", false);
+		}
+		
+		if(!exceptionCaught) {
+			assertFalse("Exception did not occur as expected", true);
+		}
+	}
 }
