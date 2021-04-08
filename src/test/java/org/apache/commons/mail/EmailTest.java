@@ -171,4 +171,83 @@ public class EmailTest {
 		
 		assertEquals(TEST_EMAILS[2], email.getFromAddress().toString());
 	}
+	
+	
+	
+	@Test
+	public void testBuildMimeMessage() throws EmailException {
+		email.setHostName("hostname");
+		email.setFrom("fromAddress@mail.com");
+		email.addCc(TEST_EMAILS[0]);
+		email.buildMimeMessage();
+
+		assertNotEquals(email.message, null);
+	}
+	
+	@Test
+	public void testBuildMimeMessageSubject() throws EmailException {
+		email.setSubject("Important Test");
+		email.setHostName("hostname");
+		email.setFrom("fromAddress@mail.com");
+		email.addCc(TEST_EMAILS[0]);
+		email.buildMimeMessage();
+
+		assertNotEquals(email.message, null);
+	}
+	
+	@Test
+	public void testBuildMimeMessageSubjectCharset() throws EmailException {
+		email.setSubject("Important Test");
+		email.setCharset("US-ASCII");
+		email.setHostName("hostname");
+		email.setFrom("fromAddress@mail.com");
+		email.addCc(TEST_EMAILS[0]);
+		email.buildMimeMessage();
+
+		assertNotEquals(email.message, null);
+	}
+	
+	@Test
+	public void testBuildMimeMessageContent() throws EmailException {
+		email.setContent(TEST_EMAILS, "list");
+		email.setHostName("hostname");
+		email.setFrom("fromAddress@mail.com");
+		email.addCc(TEST_EMAILS[0]);
+		email.buildMimeMessage();
+
+		assertNotEquals(email.message, null);
+	}
+	
+	@Test
+	public void testBuildMimeMessageTo() throws EmailException {
+		email.addTo(TEST_EMAILS[0]);
+		email.setHostName("hostname");
+		email.setFrom("fromAddress@mail.com");
+		email.addCc(TEST_EMAILS[0]);
+		email.buildMimeMessage();
+
+		assertNotEquals(email.message, null);
+	}
+
+	@Test
+	public void testBuildMimeMessageBcc() throws EmailException {
+		email.addBcc(TEST_EMAILS[1]);
+		email.setHostName("hostname");
+		email.setFrom("fromAddress@mail.com");
+		email.addCc(TEST_EMAILS[0]);
+		email.buildMimeMessage();
+
+		assertNotEquals(email.message, null);
+	}
+	
+	@Test
+	public void testBuildMimeMessageReply() throws EmailException {
+		email.addReplyTo(TEST_EMAILS[2]);
+		email.setHostName("hostname");
+		email.setFrom("fromAddress@mail.com");
+		email.addCc(TEST_EMAILS[0]);
+		email.buildMimeMessage();
+
+		assertNotEquals(email.message, null);
+	}
 }
