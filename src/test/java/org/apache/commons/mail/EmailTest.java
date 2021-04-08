@@ -117,4 +117,15 @@ public class EmailTest {
 			assertFalse("Exception did not occur as expected", true);
 		}
 	}
+	
+		
+	@Test
+	/**
+	 * Tests gethostname by first assigning a hostname
+	 * @throws EmailException
+	 */
+	public void testGetHostName() throws EmailException {
+		email.setHostName("hostname");
+		assertEquals("hostname", email.getHostName());
+	}
 }
