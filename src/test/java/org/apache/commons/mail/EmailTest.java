@@ -66,4 +66,16 @@ public class EmailTest {
 		
 		assertEquals(1, email.getCcAddresses().size());
 	}
+	
+	@Test
+	/**
+	 * Same as above. Adds two heads then ensures the size matches the number of insertions(2)
+	 * @throws Exception
+	 */
+	public void testAddHeader() throws Exception{
+		email.addHeader("name", "value");
+		email.addHeader("name2", "value2");
+		
+		assertEquals(2, email.headers.size());
+	}
 }
