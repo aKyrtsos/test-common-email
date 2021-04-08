@@ -54,4 +54,16 @@ public class EmailTest {
 		email.addBcc(TEST_EMAILS_EMPTY); 
 
 	}
+	
+		
+	@Test
+	/**
+	 * Ensures addCc works by comparing the size of all cc addresses after the operation, similar to what was done in bcc
+	 * @throws Exception
+	 */
+	public void testAddCc() throws Exception{
+		email.addCc(TEST_EMAILS[0]);
+		
+		assertEquals(1, email.getCcAddresses().size());
+	}
 }
