@@ -44,4 +44,14 @@ public class EmailTest {
 		
 		assertEquals(4, email.getBccAddresses().size());
 	}
+	
+	@Test(expected = EmailException.class)
+	/**
+	 * Tests to ensure an exception is thrown when a given email list is empty
+	 * @throws Exception
+	 */
+	public void bccEmailException() throws Exception{
+		email.addBcc(TEST_EMAILS_EMPTY); 
+
+	}
 }
