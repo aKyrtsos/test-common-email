@@ -33,4 +33,15 @@ public class EmailTest {
 	public void tearDownEmailTest(){
 		email = null;
 	}
+	
+	@Test
+	/**
+	 * Tests adding emails from an array to bcc. We have four test emails, so the size after the operation should be four as well
+	 * @throws Exception
+	 */
+	public void testAddBcc() throws Exception{
+		email.addBcc(TEST_EMAILS);
+		
+		assertEquals(4, email.getBccAddresses().size());
+	}
 }
