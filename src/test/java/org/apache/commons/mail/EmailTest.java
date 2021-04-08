@@ -128,4 +128,14 @@ public class EmailTest {
 		email.setHostName("hostname");
 		assertEquals("hostname", email.getHostName());
 	}
+	
+		
+	@Test
+	/**
+	 * Ensures gethostname operates correctly without assigning a hostname prior
+	 * @throws EmailException
+	 */
+	public void testGetHostNameNull() throws EmailException {
+		assertEquals(null, email.getHostName());
+	}
 }
