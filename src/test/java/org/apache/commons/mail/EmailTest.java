@@ -156,4 +156,11 @@ public class EmailTest {
 	public void testSentDateEmpty() throws EmailException {
 		assertEquals(new Date(), email.getSentDate());
 	}
+	
+	
+	
+	@Test
+	public void testGetSocketConnectionTimeout() throws EmailException {		
+		assertEquals(60000, email.getSocketConnectionTimeout());
+	}
 }
